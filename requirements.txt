@@ -1,0 +1,8 @@
+Minimum Project Requirments
+
+1. Front End Framework(React/Angular)
+2. Back End Framework(Node + Express/ASP.NET Core/Java Spring)
+3. Database (SQL or NoSQL)
+4. Styled with CSS
+5. Responsive
+6. Github Repository
