@@ -10,6 +10,6 @@ const classifiedSchema = new Schema ({
 },
     {timestamps: true,}
 );
-const Event = mongoose.model('Classified', classifiedSchema);
+const Classified = mongoose.model('Classified', classifiedSchema);
 
 module.exports = Classified;

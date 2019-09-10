@@ -1,5 +1,5 @@
 const router = require('express').Router();
-let Event = require('../model/event.model');
+let Event = require('../models/event.model');
 
 router.route('/').get((req, res) => {
     Event.find()

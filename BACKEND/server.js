@@ -18,7 +18,7 @@ connection.once('open', () => {
 })
 
 const eventsRouter = require('./routes/events');
-const eventsRouter = require('./routes/classifieds');
+const classifiedsRouter = require('./routes/classifieds');
 
 
 app.use('/events',eventsRouter);
