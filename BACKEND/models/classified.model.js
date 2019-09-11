@@ -13,3 +13,5 @@ const classifiedSchema = new Schema ({
 const Event = mongoose.model('Classified', classifiedSchema);
 
 module.exports = Classified;
+
+
