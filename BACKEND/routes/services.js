@@ -1,9 +1,9 @@
 const router = require('express').Router();
-let Event = require('../models/event.model');
+let Service = require('../models/service.model');
 
 router.route('/').get((req, res) => {
-    Event.find()
-    .then(event => res.json(events))
+    Service.find()
+    .then(service => res.json(services))
     .catch(err => res.status(400)).json('Error: ' + err);
 });
 
@@ -15,7 +15,7 @@ router.route('/add').post((req, res) => {
     const contactPhone = req.body.contactPhone;
     const contactEmail = req.body.contactEmail;
 
-    const newEvent = new Event({
+    const newService = new Service({
         title,
         price,
         description,
@@ -24,32 +24,32 @@ router.route('/add').post((req, res) => {
         contactEmail,
     });
 
-    newEvent.save()
+    newService.save()
     .then(() => res.json('Event added!'))
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
 router.route('/:id').get((requ, res) => {
-    Event.findById(requ.params.id)
-    .then(event => res.json(event))
+    Service.findById(requ.params.id)
+    .then(service => res.json(service))
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
 router.route('/:id').delete((req, res) => {
-    Event.findByIdAndDelete(req.params.id)
-    .then(() => res.json('Event deleted.'))
+    Service.findByIdAndDelete(req.params.id)
+    .then(() => res.json('Service deleted.'))
     .catch(err => res.status(400).json('Error: ' + err));
 })
 
 router.route('/update/:id').post((req, res) => {
-    Event.findById(req.params.id)
-    .then(event => {
-        event.title = req.body.title;
-        event.price = req.body.price;
-        event.description = req.body.description;
-        event.contactName = req.body.contactName;
-        event.contactPhone = req.body.contactPhone;
-        event.contactEmail = req.body.contactEmail;
+    Service.findById(req.params.id)
+    .then(service => {
+        service.title = req.body.title;
+        service.price = req.body.price;
+        service.description = req.body.description;
+        service.contactName = req.body.contactName;
+        service.contactPhone = req.body.contactPhone;
+        service.contactEmail = req.body.contactEmail;
 
         event.save()
         .then(() => res.json('Event updated!'))

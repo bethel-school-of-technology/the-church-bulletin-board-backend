@@ -18,11 +18,13 @@ connection.once('open', () => {
 })
 
 const eventsRouter = require('./routes/events');
-const eventsRouter = require('./routes/classifieds');
+const classifiedsRouter = require('./routes/classifieds');
+const servicesRouter = require('/routes/services');
 
 
 app.use('/events',eventsRouter);
 app.use('/classifieds',classifiedsRouter);
+app.use('/services',servicesRouter);
 
 app.listen(port, () => {
     console.log(`Server is running on port; ${port}`);

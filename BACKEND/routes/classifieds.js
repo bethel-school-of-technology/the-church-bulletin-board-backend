@@ -8,16 +8,20 @@ router.route('/').get((req, res) => {
 });
 
 router.route('/add').post((req, res) => {
-    const date = req.body.date;
-    const item = req.body.item;
-    const location = req.body.location;
-    const contact = req.body.contact;
+    const title = req.body.title;
+    const price = req.body.price;
+    const description = req.body.description;
+    const contactName = req.body.contactName;
+    const contactPhone = req.body.contactPhone;
+    const contactEmail = req.body.contactEmail;
 
     const newClassified = new Classified({
-        date,
-        item,
-        location,
-        contact,
+        title,
+        price,
+        description,
+        contactName,
+        contactPhone,
+        contactEmail
     });
 
     newEvent.save()
@@ -40,10 +44,12 @@ router.route('/:id').delete((req, res) => {
 router.route('/update/:id').post((req, res) => {
     Classified.findById(req.params.id)
     .then(classified => {
-        classified.date = req.body.date;
-        classified.item = req.body.item;
-        classified.location = req.body.location;
-        classified.contact = req.body.contact;
+        classified.title = req.body.title;
+        classified.price = req.body.price;
+        classified.description = req.body.description;
+        classified.contactName = req.body.contactName;
+        classified.contactPhone = req.body.contactPhone;
+        classified.contactEmail = req.body.contactEmail;
 
         classified.save()
         .then(() => res.json('Event updated!'))

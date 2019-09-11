@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
-const classifiedSchema = new Schema ({
+const serviceSchema = new Schema ({
     title: {type: String, required: true},
     price: {type: String, required: true},
     description: {type: String, required: true},
@@ -12,8 +12,6 @@ const classifiedSchema = new Schema ({
 },
     {timestamps: true,}
 );
-const Event = mongoose.model('Classified', classifiedSchema);
+const Service = mongoose.model('Service', eventSchema);
 
-module.exports = Classified;
-
-
+module.exports = Service;
