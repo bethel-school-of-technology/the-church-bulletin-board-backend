@@ -25,11 +25,11 @@ router.route('/add').post((req, res) => {
     });
 
     newService.save()
-    .then(() => res.json('Event added!'))
+    .then(() => res.json('Service added!'))
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
-router.route('/:id').get((requ, res) => {
+router.route('/:id').get((req, res) => {
     Service.findById(requ.params.id)
     .then(service => res.json(service))
     .catch(err => res.status(400).json('Error: ' + err));
