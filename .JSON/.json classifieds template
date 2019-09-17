@@ -1,0 +1,45 @@
+
+{
+    "title": "Utility trailer",
+    "price": "free",
+    "description": "great condition,  you haul",
+    "contactName": "John Smith",
+    "contactPhone": "123-456-7890",
+    "contactEmail": "js@gmail.com"
+}
+
+{
+    "title": "Home Gym",
+    "price": "free, you pick it up",
+    "description": "great condition, never used",
+    "contactName": "John Smith",
+    "contactPhone": "123-456-7890",
+    "contactEmail": "js@gmail.com"
+}
+
+{
+    "title": "Complete set of Encyclopedia Britannica",
+    "price": "free",
+    "description": "great condition, teenager knows everything...",
+    "contactName": "John Smith",
+    "contactPhone": "123-456-7890",
+    "contactEmail": "js@gmail.com"
+}
+
+{
+    "title": "Toaster Oven",
+    "price": "free",
+    "description": "like new, automatically burns the toast",
+    "contactName": "John Smith",
+    "contactPhone": "123-456-7890",
+    "contactEmail": "js@gmail.com"
+}
+
+{
+    "title": "Mavel Comicbooks",
+    "price": "priceless",
+    "description": "great condition",
+    "contactName": "John Smith",
+    "contactPhone": "123-456-7890",
+    "contactEmail": "js@gmail.com"
+}
