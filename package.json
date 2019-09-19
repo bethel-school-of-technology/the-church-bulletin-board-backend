@@ -1,0 +1,26 @@
+{
+  "name": "the-church-bulletin-board-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "server": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bethel-school-of-technology/the-church-bulletin-board-backend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bethel-school-of-technology/the-church-bulletin-board-backend/issues"
+  },
+  "homepage": "https://github.com/bethel-school-of-technology/the-church-bulletin-board-backend#readme",
+  "dependencies": {
+    "concurrently": "^4.1.2",
+    "express": "^4.17.1",
+    "mongoose": "^5.7.1",
+    "nodemon": "^1.19.2"
+  }
+}
