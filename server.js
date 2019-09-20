@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 //body parser allows data post and get requests
 
 
-const classifieds = require('BACKEND/routes/api/classifieds');
+const classifieds = require('./BACKEND/routes/api/classifieds');
 const events = require('./BACKEND/routes/api/events');
 
 const app = express();
