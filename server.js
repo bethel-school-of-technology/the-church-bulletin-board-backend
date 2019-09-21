@@ -7,6 +7,7 @@ const bodyParser = require('body-parser');
 
 const classifieds = require('./routes/api/classifieds');
 const events = require('./routes/api/events');
+const services = require('./routes/api/services');
 
 const app = express();
 
@@ -28,6 +29,7 @@ mongoose
 
 app.use('/api/classifieds', classifieds);
 app.use('/api/events', events);
+app.use('/api/events', services);
 
 //connect to server
 
