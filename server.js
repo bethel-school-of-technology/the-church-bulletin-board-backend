@@ -20,7 +20,7 @@ const db = require('./config/keys').mongoURI;
 
 //connect to mongoDB
 mongoose
-.connect(db)
+.connect(db, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true })
 .then(() => console.log('MondgoDB Connected...'))
 .catch(err =>console.log(err));
 
@@ -31,6 +31,6 @@ app.use('/api/events', events);
 
 //connect to server
 
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 4000;
 
 app.listen(port, () => console.log(`Server started on port ${port}`));

@@ -1,5 +1,5 @@
 module.exports = {
-    mongoURI: 'mongodb+srv://dbuser:<password>@clusterocrush-ljprw.mongodb.net/test?retryWrites=true&w=majority'
+    mongoURI: 'mongodb+srv://dbuser:Password1!@clusterocrush-ljprw.mongodb.net/test?retryWrites=true&w=majority'
 }
 //Tami's mongodb
 // module.exports = {
