@@ -31,7 +31,7 @@ mongoose
 
 app.use('/api/classifieds', classifieds);
 app.use('/api/events', events);
-app.use('/api/events', services);
+app.use('/api/services', services);
 
 //connect to server
 

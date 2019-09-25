@@ -14,6 +14,14 @@ router.get('/', (req, res) => {
     .then(events => res.json(events))
 });
 
+//actual route - GET by ID request api/events
+//description - this route will GET an event by ID
+router.get('/:id', (req, res, next) => {
+    return Event.findById(req.params.id)
+    .then(result => {console.log(result); res.status(201).json(result);})
+    .catch(err => res.status(404).json({ success: false}));
+});
+
 //actual route - POST request api/event
 //description this will CREATE an event
 

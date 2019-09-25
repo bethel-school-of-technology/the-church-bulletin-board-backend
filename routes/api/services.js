@@ -5,13 +5,20 @@ const router = express.Router();
 
 const Service = require('../../models/Service');
 
-//actual route - GET request api/services
-//description this will get all services
+//actual route - GET all requests api/services
+//description this will get ALL services
 
 router.get('/', (req, res) => {
     Service.find()
-   //.sort({ Date:-1 })
     .then(services => res.json(services))
+});
+
+//actual route - GET a service by ID
+
+router.get('/:id', (req, res, next) => {
+    return Service.findById(req.params.id)
+    .then(result => {console.log(result); res.status(201).json(result);})
+    .catch(err => res.status(404).json({ success: false}));
 });
 
 //actual route - POST request api/service
@@ -30,14 +37,16 @@ router.post('/', (req, res) => {
     newService.save().then(service => res.json(service));
 });
 
-//actual route - PUT request api/service
-//description - this will update a service
+//actual route - PUT request api/service/id
+//description - this will UPDATE a service by finding it by ID
 
-//router.update('/:id', (requ, res) => {
-    //Service.findById(req.params.id)
+//router.put('/:id', (req, res) => {
+   //Service.findById(req.params.id)
     //.then(service => service.update().then(() => res.json({ success: true})))
     //.catch(err => res.status(404).json({ success: false}));
 //});
+
+
 
 //actual route - DELETE request api/service/id
 //description this will DELETE an service
