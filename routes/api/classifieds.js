@@ -24,7 +24,6 @@ router.get('/:id', (req, res, next) => {
 });
 
 
-
 //actual route - POST request api/classified
 //description this will CREATE an classified
 
@@ -40,6 +39,11 @@ router.post('/', (req, res) => {
 
     newClassified.save().then(classified => res.json(classified));
 });
+
+//actual route - PUT request api/classified
+//description - this route will UPDATE a classified
+
+
 
 //actual route - DELETE request api/classifieds/id
 //description this will DELETE an classified
