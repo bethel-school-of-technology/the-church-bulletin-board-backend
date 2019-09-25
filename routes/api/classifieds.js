@@ -27,7 +27,7 @@ router.get('/:id', (req, res, next) => {
 //actual route - POST request api/classified
 //description this will CREATE an classified
 
-router.post('/', (req, res) => {
+router.post('/add', (req, res) => {
     const newClassified = new Classified({
         title: req.body.title,
         price: req.body.price,
