@@ -33,11 +33,11 @@ router.post('/', (req, res) => {
 //actual route - PUT request api/service
 //description - this will update a service
 
-router.update('/:id', (requ, res) => {
-    Service.findById(req.params.id)
-    .then(service => service.update().then(() => res.json({ success: true})))
-    .catch(err => res.status(404).json({ success: false}));
-});
+//router.update('/:id', (requ, res) => {
+    //Service.findById(req.params.id)
+    //.then(service => service.update().then(() => res.json({ success: true})))
+    //.catch(err => res.status(404).json({ success: false}));
+//});
 
 //actual route - DELETE request api/service/id
 //description this will DELETE an service
