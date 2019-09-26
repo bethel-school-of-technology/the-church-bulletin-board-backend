@@ -1,7 +1,6 @@
+//module.exports = {
+ //   mongoURI: 'mongodb+srv://dbuser:<password>@clusterocrush-ljprw.mongodb.net/test?retryWrites=true&w=majority'}
+
+ //Tami's mongodb
 module.exports = {
-    mongoURI: 'mongodb+srv://dbuser:Password1!@clusterocrush-ljprw.mongodb.net/test?retryWrites=true&w=majority'
-}
-//Tami's mongodb
-// module.exports = {
-//     mongoURI: 'mongodb+srv://guest:guest123@cluster0-gxpix.mongodb.net/test?retryWrites=true&w=majority'
-// }
+    mongoURI: 'mongodb+srv://thoff:mOOkie153!@cluster0-dxzz4.mongodb.net/test?retryWrites=true&w=majority' }
