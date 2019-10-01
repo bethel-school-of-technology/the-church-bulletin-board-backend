@@ -45,6 +45,7 @@ router.post('/', (req, res) => {
 
 
 
+
 //actual route - DELETE request api/classifieds/id
 //description this will DELETE an classified
 
@@ -54,7 +55,6 @@ router.delete('/:id', (req, res) => {
     .catch(err => res.status(404).json({ success:false }));
 });
     
-
 
 
 module.exports = router;

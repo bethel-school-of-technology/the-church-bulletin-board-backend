@@ -23,7 +23,7 @@ router.get('/:id', (req, res, next) => {
 });
 
 //actual route - POST request api/event
-//description this will CREATE an event
+//description -  this will CREATE an event
 
 router.post('/', (req, res) => {
     const newEvent = new Event({
@@ -38,8 +38,13 @@ router.post('/', (req, res) => {
     newEvent.save().then(event => res.json(event));
 });
 
+//actual route - UPDATE request api/event/id
+//description - this will UPDATE an event by ID
+
+
+
 //actual route - DELETE request api/event/id
-//description this will DELETE an event
+//description - this will DELETE an event
 
 router.delete('/:id', (req, res) => {
     Event.findById(req.params.id)

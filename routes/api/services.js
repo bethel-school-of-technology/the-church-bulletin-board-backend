@@ -37,15 +37,26 @@ router.post('/', (req, res) => {
     newService.save().then(service => res.json(service));
 });
 
+
 //actual route - PUT request api/service/id
 //description - this will UPDATE a service by finding it by ID
 
-//router.put('/:id', (req, res) => {
-   //Service.findById(req.params.id)
-    //.then(service => service.update().then(() => res.json({ success: true})))
-    //.catch(err => res.status(404).json({ success: false}));
-//});
+router.post('/update/:id').post ((req, res) => {
+   Service.findById(req.params.id)
+    .then(service => {
+        service.title = req.body.title;
+        service.price = req.body.price;
+        service.description = req.description;   
+        service.contactName = req.contactName;
+        service.contactPhone = req.contactName;
+        service.contactEmail = req.contactEmail;
 
+        service.save()
+            .then(() => res.json('Service updated!'));
+            
+})
+    .catch(err => res.status(400).json('Erro: ' +err));
+});
 
 
 //actual route - DELETE request api/service/id
@@ -57,7 +68,6 @@ router.delete('/:id', (req, res) => {
     .catch(err => res.status(404).json({ success:false }));
 });
     
-
 
 
 module.exports = router;
