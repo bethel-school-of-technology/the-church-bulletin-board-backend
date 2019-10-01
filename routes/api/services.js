@@ -41,7 +41,7 @@ router.post('/', (req, res) => {
 //actual route - PUT request api/service/id
 //description - this will UPDATE a service by finding it by ID
 
-router.post('/update/:id',).post((req, res) => {
+router.post('/update/:id').post((req, res) => {
    Service.findById(req.params.id)
     .then(service => {
         service.title = req.body.title;
