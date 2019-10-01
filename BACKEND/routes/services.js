@@ -30,7 +30,7 @@ router.route('/add').post((req, res) => {
 });
 
 router.route('/:id').get((req, res) => {
-    Service.findById(requ.params.id)
+    Service.findById(req.params.id)
     .then(service => res.json(service))
     .catch(err => res.status(400).json('Error: ' + err));
 });
@@ -52,7 +52,7 @@ router.route('/update/:id').post((req, res) => {
         service.contactEmail = req.body.contactEmail;
 
         event.save()
-        .then(() => res.json('Event updated!'))
+        .then(() => res.json('Service updated!'))
         .catch(err => res.status(400).json('Error: ' + err));
     })
     .catch(err => res.status(400).json('Error: ' + err));

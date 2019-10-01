@@ -25,8 +25,8 @@ router.route('/add').post((req, res) => {
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
-router.route('/:id').get((requ, res) => {
-    Classified.findById(requ.params.id)
+router.route('/:id').get((req, res) => {
+    Classified.findById(req.params.id)
     .then(classified => res.json(classified))
     .catch(err => res.status(400).json('Error: ' + err));
 });
