@@ -3,7 +3,7 @@ const router = express.Router();
 
 //service model
 
-const Service = require('../../models/Service');
+const Service = require('../models/Service');
 
 //actual route - GET all requests api/services
 //description this will get ALL services

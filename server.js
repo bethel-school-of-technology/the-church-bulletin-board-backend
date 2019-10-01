@@ -1,19 +1,23 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 
 //body parser allows data post and get requests
 
 
 //Routes used for API
 
-const classifieds = require('./routes/api/classifieds');
-const events = require('./routes/api/events');
-const services = require('./routes/api/services');
+const classifieds = require('./routes/classifieds');
+const events = require('./routes/events');
+const services = require('./routes/services');
 
 const app = express();
 
+app.use(cors());
+
 //Body parser Middleware
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 //Mongo database
@@ -29,9 +33,9 @@ mongoose
 
 //use routes
 
-app.use('/api/classifieds', classifieds);
-app.use('/api/events', events);
-app.use('/api/services', services);
+app.use('/classifieds', classifieds);
+app.use('/events', events);
+app.use('/services', services);
 
 //connect to server
 

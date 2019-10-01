@@ -3,7 +3,7 @@ const router = express.Router();
 
 //event model
 
-const Event = require('../../models/Event');
+const Event = require('../models/Event');
 
 //actual route - GET request api/events
 //description this will get all events
