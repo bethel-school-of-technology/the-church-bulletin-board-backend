@@ -42,7 +42,23 @@ router.post('/', (req, res) => {
 //actual route - PUT request api/classified
 //description - this route will UPDATE a classified
 
+router.post('/:id', (req, res) => {
+    Classified.findByIdAndUpdate(req.params.id)
+    .then(classified => {
+        classified.title = req.body.title;
+        classified.price = req.body.price;
+        classified.description = req.body.description;
+        classified.contactName = req.body.contactName;
+        classified.contactPhone = req.body.contactPhone;
+        classified.contactEmail = req.body.contactEmail;
 
+        classified.save()
+        .then(() => res.json('Classified updated!'))
+        .catch(err => res.status(400).json('Error: ' + err));
+    })
+            
+    .catch(err => res.status(404).json({ success: false}));
+});
 
 
 
