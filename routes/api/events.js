@@ -10,7 +10,6 @@ const Event = require('../../models/Event');
 
 router.get('/', (req, res) => {
     Event.find()
-   //.sort({ Date:-1 })
     .then(events => res.json(events))
 });
 

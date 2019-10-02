@@ -10,7 +10,6 @@ const Classified = require('../../models/Classified');
 
 router.get('/', (req, res) => {
     Classified.find()
-   //.sort({ Date:-1 })
     .then(classifieds => res.json(classifieds))
 });
 
@@ -25,7 +24,7 @@ router.get('/:id', (req, res, next) => {
 
 
 //actual route - POST request api/classified
-//description this will CREATE an classified
+//description this will CREATE a classified
 
 router.post('/', (req, res) => {
     const newClassified = new Classified({
@@ -42,6 +41,7 @@ router.post('/', (req, res) => {
 
 //actual route - PUT request api/classified
 //description - this route will UPDATE a classified
+
 
 
 
