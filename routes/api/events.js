@@ -37,8 +37,27 @@ router.post('/', (req, res) => {
     newEvent.save().then(event => res.json(event));
 });
 
-//actual route - UPDATE request api/event/id
-//description - this will UPDATE an event by ID
+//actual route - PUT request api/event
+//description - this route will UPDATE an event
+
+router.post('/:id', (req, res) => {
+    Event.findByIdAndUpdate(req.params.id)
+    .then(event => {
+        event.title = req.body.title;
+        event.price = req.body.price;
+        event.description = req.body.description;
+        event.contactName = req.body.contactName;
+        event.contactPhone = req.body.contactPhone;
+        event.contactEmail = req.body.contactEmail;
+
+        event.save()
+        .then(() => res.json('Event updated, YOU SO TOTALLY ROCK!'))
+        .catch(err => res.status(400).json('Error: ' + err));
+    })
+            
+    .catch(err => res.status(404).json({ success: false}));
+});
+
 
 
 

@@ -53,7 +53,7 @@ router.post('/:id', (req, res) => {
         classified.contactEmail = req.body.contactEmail;
 
         classified.save()
-        .then(() => res.json('Classified updated!'))
+        .then(() => res.json('Classified updated, you are AMAZING!'))
         .catch(err => res.status(400).json('Error: ' + err));
     })
             

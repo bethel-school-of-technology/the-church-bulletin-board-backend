@@ -38,25 +38,27 @@ router.post('/', (req, res) => {
 });
 
 
-//actual route - PUT request api/service/id
-//description - this will UPDATE a service by finding it by ID
+//actual route - PUT request api/services
+//description - this route will UPDATE a service
 
-router.post('/update/:id').post((req, res) => {
-   Service.findById(req.params.id)
+router.post('/:id', (req, res) => {
+    Service.findByIdAndUpdate(req.params.id)
     .then(service => {
         service.title = req.body.title;
         service.price = req.body.price;
-        service.description = req.description;   
-        service.contactName = req.contactName;
-        service.contactPhone = req.contactName;
-        service.contactEmail = req.contactEmail;
+        service.description = req.body.description;
+        service.contactName = req.body.contactName;
+        service.contactPhone = req.body.contactPhone;
+        service.contactEmail = req.body.contactEmail;
 
         service.save()
-            .then(() => res.json('Service updated!'));
+        .then(() => res.json('Service updated, you master coder you!'))
+        .catch(err => res.status(400).json('Error: ' + err));
+    })
             
-})
-    .catch(err => res.status(400).json('Erro: ' +err));
+    .catch(err => res.status(404).json({ success: false}));
 });
+
 
 
 //actual route - DELETE request api/service/id
