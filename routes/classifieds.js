@@ -25,7 +25,7 @@ router.get('/:id', (req, res) => {
 
 
 //actual route - POST request /classified
-//description this will CREATE an classified
+//description this will CREATE a classified
 
 router.post('/add', (req, res) => {
     const newClassified = new Classified({
@@ -43,35 +43,21 @@ router.post('/add', (req, res) => {
 //actual route - PUT request /classified
 //description - this route will UPDATE a classified
 
-router.post('/update/:id', (req, res) => {
-  let classifiedId = (req.params.id);
-    Classified.findById({where: { _id:classifiedId}}, req.body)
-        .then(result => res.redirect('/classifieds'))
-        .catch(err => {
-            res.status(400);
-            res.send("There was a problem updating the Classified Id.  Please check the Classified Ad information.");
-    });
-// router.post('/update/:id', (req, res) => {
-//     console.log(req.body)
-//     let classifiedId = (req.params.id);
-//     console.log(classifiedId)
-//     Classified.updateOne({where: { _id:classifiedId}}, req.body)
-//         .then(result => res.redirect('../classifieds/'))
-//         .catch(err => {
-//             res.status(400);
-//             res.send("There was a problem updating the Classified Id.  Please check the Classified Ad information.");
-//     });
-    //const newClassified = new Classified({
-        //_id: (req.params.id),
-        // title: req.body.title,
-        // price: req.body.price,
-        // description: req.body.description,
-        // contactName: req.body.contactName,
-        // contactPhone: req.body.contactPhone,
-        // contactEmail: req.body.contactEmail
-    //});
+router.post('/:id', (req, res) => {
+    Classified.findByIdAndUpdate(req.params.id)
+    .then(classified => {
+        classified.title = req.body.title;
+        classified.price = req.body.price;
+        classified.description = req.body.description;
+        classified.contactName = req.body.contactName;
+        classified.contactPhone = req.body.contactPhone;
+        classified.contactEmail = req.body.contactEmail;
 
-   // newClassified.save().then(classified => res.json(classified));
+        classified.save()
+        .then(() => res.json('Classified updated, you are AMAZING!'))
+        .catch(err => res.status(404).json('Error:' +err));
+})
+    .catch(err => res.status(404).json({sucess:false}));
 });
 
 //actual route - DELETE request /classifieds/id
