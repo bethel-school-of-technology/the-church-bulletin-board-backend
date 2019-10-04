@@ -10,9 +10,8 @@ const Classified = require('../models/Classified');
 
 router.get('/', (req, res) => {
     Classified.find()
-   //.sort({ Date:-1 })
-    .then(classifieds => res.json(classifieds))
-});
+    .then(classifieds => res.json(classifieds));
+   });
 
 //actual route - GET by Classified ID
 //description - this will GET a classified by ID
@@ -69,7 +68,4 @@ router.delete('/:id', (req, res) => {
     .catch(err => res.status(404).json({ success:false }));
 });
     
-
-
-
 module.exports = router;

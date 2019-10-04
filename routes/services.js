@@ -15,7 +15,7 @@ router.get('/', (req, res) => {
 
 //actual route - GET a service by ID
 
-router.get('/:id', (req, res, next) => {
+router.get('/:id', (req, res ) => {
     return Service.findById(req.params.id)
     .then(result => {console.log(result); res.status(201).json(result);})
     .catch(err => res.status(404).json({ success: false}));
