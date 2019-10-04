@@ -5,7 +5,6 @@ const cors = require('cors');
 
 //body parser allows data post and get requests
 
-
 //Routes used for API
 
 const classifieds = require('./routes/classifieds');
