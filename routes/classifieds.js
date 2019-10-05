@@ -10,7 +10,6 @@ const Classified = require('../models/Classified');
 
 router.get('/', (req, res) => {
     Classified.find()
-   //.sort({ Date:-1 })
     .then(classifieds => res.json(classifieds))
 });
 
