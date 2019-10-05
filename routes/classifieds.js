@@ -37,6 +37,7 @@ router.post('/add', (req, res) => {
     });
 
     newClassified.save().then(classified => res.json(classified));
+    
 });
 
 //actual route - PUT request /classified
