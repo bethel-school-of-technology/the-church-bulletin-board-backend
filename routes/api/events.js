@@ -60,8 +60,6 @@ router.post('/:id', (req, res) => {
 });
 
 
-
-
 //actual route - DELETE request api/event/id
 //description - this will DELETE an event
 

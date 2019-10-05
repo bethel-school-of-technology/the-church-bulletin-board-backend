@@ -9,14 +9,14 @@ const Classified = require('../../models/Classified');
 //description this will get all classifieds
 
 router.get('/', (req, res) => {
-    Classified.findOne()
+    Classified.find()
     .then(classifieds => res.json(classifieds))
 });
 
 //actual route - GET by Classified ID
 //description - this will GET a classified by ID
 
-router.get('/:id', (req, res, next) => {
+router.get('/:id', (req, res) => {
     return Classified.findById(req.params.id)
     .then(result => {console.log(result); res.status(201).json(result);})
     .catch(err => res.status(404).json({success:false}));
@@ -61,9 +61,8 @@ router.post('/:id', (req, res) => {
 });
 
 
-
 //actual route - DELETE request api/classifieds/id
-//description this will DELETE an classified
+//description this will DELETE a classified
 
 router.delete('/:id', (req, res) => {
     Classified.findById(req.params.id)
