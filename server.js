@@ -23,9 +23,12 @@ const db = require('./config/keys').mongoURI;
 
 //connect to mongoDB through mongoose
 mongoose
-.connect(db)
+.connect(db,{useNewUrlParser:true, useCreateIndex: true})
 .then(() => console.log('MondgoDB Connected...'))
 .catch(err =>console.log(err));
+
+
+//the useNewUrlParser and useCreateIndex are used to get past the depredicated error
 
 //use routes
 
