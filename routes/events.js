@@ -1,11 +1,9 @@
 const express = require('express');
 const router = express.Router();
-
-//event model
-
 const Event = require('../models/Event');
 
-//actual route - GET request api/events
+
+//actual route - GET request /events
 //description this will get all events
 
 router.get('/', (req, res) => {
@@ -14,15 +12,18 @@ router.get('/', (req, res) => {
     .then(events => res.json(events))
 });
 
-//actual route - GET by ID request api/events
+
+//actual route - GET by ID request /events
 //description - this route will GET an event by ID
+
 router.get('/:id', (req, res, next) => {
     return Event.findById(req.params.id)
     .then(result => {console.log(result); res.status(201).json(result);})
     .catch(err => res.status(404).json({ success: false}));
 });
 
-//actual route - POST request api/event
+
+//actual route - POST request /event
 //description this will CREATE an event
 
 router.post('/', (req, res) => {
@@ -38,15 +39,45 @@ router.post('/', (req, res) => {
     newEvent.save().then(event => res.json(event));
 });
 
-//actual route - DELETE request api/event/id
+
+//actual route - PUT request /event
+//description - this route will UPDATE an event
+
+router.post('/:id', (req, res) => {
+    event.findByIdAndUpdate(req.params.id)
+    .then(event => {
+        event.title = req.body.title;
+        event.price = req.body.price;
+        event.description = req.body.description;
+        event.contactName = req.body.contactName;
+        event.contactPhone = req.body.contactPhone;
+        event.contactEmail = req.body.contactEmail;
+        event.save()
+        .then(() => res.json('Event updated!'))
+        .catch(err => res.status(400).json('Error: ' + err));
+    })
+    .catch(err => res.status(404).json({ success: false}));
+ });
+
+
+//actual route - DELETE request /event/id
 //description this will DELETE an event
 
 router.delete('/:id', (req, res) => {
-    Event.findById(req.params.id)
-    .then(event => event.remove().then(() => res.json({ success: true })))
-    .catch(err => res.status(404).json({ success:false }));
-});
-    
+    Event.findByIdAndDelete(req.params.id)
+    .then(event => {
+        // event.title = req.body.title;
+        // event.price = req.body.price;
+        // event.description = req.body.description;
+        // event.contactName = req.body.contactName;
+        // event.contactPhone = req.body.contactPhone;
+        // event.contactEmail = req.body.contactEmail;
+        event.save()
+        .then(() => res.json('Event deleted!'))
+        .catch(err => res.status(400).json('Error: ' + err));
+    })
+    .catch(err => res.status(404).json({ success: false}));
+ });
 
 
 
