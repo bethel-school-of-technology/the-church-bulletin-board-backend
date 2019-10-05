@@ -23,6 +23,7 @@ const db = require('./config/keys').mongoURI;
 
 //connect to mongoDB through mongoose
 mongoose
+//.connect(db) - with just this code it shows a deprecated error.  Updated to the below .connect and no errors come through
 .connect(db,{useNewUrlParser:true, useCreateIndex: true})
 .then(() => console.log('MondgoDB Connected...'))
 .catch(err =>console.log(err));
