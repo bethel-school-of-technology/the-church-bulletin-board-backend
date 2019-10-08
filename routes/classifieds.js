@@ -42,7 +42,7 @@ router.post('/add', (req, res) => {
 //actual route - PUT request /classified
 //description - this route will UPDATE a classified
 
-router.post('/:id', (req, res) => {
+router.post('/edit/:id', (req, res) => {
     Classified.findByIdAndUpdate(req.params.id)
     .then(classified => {
         classified.title = req.body.title;

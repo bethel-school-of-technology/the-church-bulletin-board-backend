@@ -26,7 +26,7 @@ router.get('/:id', (req, res, next) => {
 //actual route - POST request /event
 //description this will CREATE an event
 
-router.post('/', (req, res) => {
+router.post('/add', (req, res) => {
     const newEvent = new Event({
         title: req.body.title,
         price: req.body.price,
@@ -43,7 +43,7 @@ router.post('/', (req, res) => {
 //actual route - PUT request /event
 //description - this route will UPDATE an event
 
-router.post('/:id', (req, res) => {
+router.post('/edit/:id', (req, res) => {
     event.findByIdAndUpdate(req.params.id)
     .then(event => {
         event.title = req.body.title;
